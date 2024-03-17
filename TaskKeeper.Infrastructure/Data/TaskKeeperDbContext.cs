@@ -7,13 +7,9 @@ namespace TaskKeeper.Persistence.Data
     {
         public DbSet<TaskItem> TaskItems { get; set; }
 
-        public TaskKeeperDbContext(DbContextOptions<TaskKeeperDbContext> options) : base(options)
+        public TaskKeeperDbContext(DbContextOptions<TaskKeeperDbContext> options)
+            : base(options)
         {
-        }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseInMemoryDatabase("TaskKeeperDatabase");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

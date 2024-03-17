@@ -1,17 +1,19 @@
+using Microsoft.EntityFrameworkCore;
 using TaskKeeper.Persistence.Data;
 using TaskKeeper.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddDbContext<TaskKeeperDbContext>();
 builder.Services.AddScoped<ITaskItemRepository, TaskItemDbRepository>();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
 builder.Services.AddAutoMapper(typeof(Program));
+
+// Add database to the container.
+builder.Services.AddDbContext<TaskKeeperDbContext>(options =>
+    options.UseInMemoryDatabase("TaskKeeperDatabase"));
 
 var app = builder.Build();
 
