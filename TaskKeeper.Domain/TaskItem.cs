@@ -16,6 +16,8 @@ namespace TaskKeeper.Domain
 
         public bool IsCompleted { get; set; } = false;
 
+        public DateTime? DueDate { get; set; }
+
         public DateTime CreationDate { get; set; } = DateTime.UtcNow;
 
         public DateTime? CompletionDate { get; set; }

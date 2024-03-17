@@ -8,7 +8,6 @@ namespace TaskKeeper.Web
     {
         public MappingProfile()
         {
-            CreateMap<CreateTaskItemRequest, TaskItem>();
             CreateMap<UpdateTaskItemRequest, TaskItem>();
         }
     }

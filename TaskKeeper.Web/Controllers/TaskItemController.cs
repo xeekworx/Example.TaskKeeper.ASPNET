@@ -50,7 +50,7 @@ namespace TaskKeeper.Web.Controllers
         }
 
         [HttpPost]
-        public async Task<TaskItem> Create(CreateTaskItemRequest request)
+        public async Task<TaskItem> Create(UpdateTaskItemRequest request)
         {
             TaskItem taskItem = _mapper.Map<TaskItem>(request);
             await _taskItemRepository.AddAsync(taskItem);
